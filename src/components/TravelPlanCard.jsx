@@ -12,13 +12,15 @@ function TravelPlanCard({ plan, handleDeleteTrip, handleFavoriteTrip }) {
                     {plan.totalCost} €
                 </p>
 
-                <div className="pill-container">
-                    <span className={`card-pill ${plan.totalCost >= 350 ? "blue-pill" : "green-pill"}`}>
-                        {plan.totalCost >= 350 ? "Premium" : "Great Deal"}
-                    </span>
-
+               <div className="pill-container">
+                    {plan.totalCost <= 350 && (
+                        <span className="card-pill green-pill">Great Deal</span>
+                    )}
+                    {plan.totalCost >= 1500 && (
+                        <span className="card-pill blue-pill">Premium</span>
+                    )}
                     {plan.allInclusive && (
-                        <span className="card-pill blue-pill">All-inclusive</span>
+                        <span className="card-pill blue-pill">All Inclusive</span>
                     )}
                 </div>
                 
